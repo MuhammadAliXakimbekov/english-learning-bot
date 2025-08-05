@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: education-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.9"
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    autoDeploy: true
+    disk:
+      name: education-bot-disk
+      mountPath: /opt/render/project/src/temp
+      sizeGB: 1
