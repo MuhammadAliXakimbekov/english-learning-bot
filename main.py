@@ -1690,7 +1690,7 @@ def main():
     print(f"Health check available at: http://localhost:{os.environ.get('PORT', 10000)}/health")
     
     # Run the bot
-    application.run_polling(allowed_updates=Update.ALL_TYPES)
+    application.run_polling()
 
 if __name__ == '__main__':
     main() 
