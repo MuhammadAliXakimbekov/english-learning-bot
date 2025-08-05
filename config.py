@@ -5,10 +5,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN', '8306098940:AAEH0Oe8F-OUR5jJEwSf-pIDdEv_hFij_6c')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+if not TELEGRAM_BOT_TOKEN:
+    raise ValueError("TELEGRAM_BOT_TOKEN environment variable is required")
 
 # Gemini API Configuration  
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'AIzaSyDwT1SbqfsqRJP8UtZIYfNbb7jyr0Vw2Y4')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable is required")
 
 # Bot Configuration
 MAX_MESSAGE_LENGTH = 4096
